@@ -1,0 +1,48 @@
+
+<div class="header sticky-top" id="myHeader">
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}"><i class="fa fa-home"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link text-white">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'video' %}" class="nav-link text-white">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'about' %}" class="nav-link text-white">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contact' %}" class="nav-link text-white">Contact</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-white text-capitalize">{{ request.user }}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu" style="background: gainsboro">
+                                {% if request.user.is_superuser %}
+                                    <a class="dropdown-item" href="{% url 'create' %}">Create Post</a>
+                                     <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="#">{{ request.user.email }}</a>
+                                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
