@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Create || {{ block.super }} {% endblock title %}
+
+{% block content %}
+
+    <div class="container">
+        <h3 class="text-center font-weight-bold mt-3">Create Post Here</h3>
+        <div class="row">
+            <div class="col-md-7 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <!---------
+                            <input type="text" name="title" placeholder="Post title here" class="textinput textInput form-control mb-3" required id="id_title" />
+                            <input type="file" name="image" class="clearablefileinput form-control-file mb-3" id="id_image" />
+                            <textarea class="ckeditorwidget form-control mb-4" cols="40" id="id_description" name="description" placeholder="Descriptions" rows="10" required data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;], [&quot;JustifyLeft&quot;, &quot;JustifyCenter&quot;, &quot;JustifyRight&quot;, &quot;JustifyBlock&quot;], [&quot;NumberedList&quot;, &quot;BulletedList&quot;], [&quot;Indent&quot;, &quot;Outdent&quot;], [&quot;Maximize&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 140, &quot;width&quot;: 590, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;extraPlugins&quot;: &quot;justify,liststyle,indent&quot;, &quot;language&quot;: &quot;en-us&quot;}" data-external-plugin-resources="[]" data-id="id_description" data-type="ckeditortype"></textarea>
+                            ------------->
+                            {{ form.media }}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 150px"></div>
+
+{% endblock content %}
