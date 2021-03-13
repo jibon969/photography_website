@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     # Local apps
     'home.apps.HomeConfig',
     'abouts.apps.AboutsConfig',
-    'contacts.apps.ContactConfig',
+    'contacts',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
