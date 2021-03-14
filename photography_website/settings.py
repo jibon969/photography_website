@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'abouts.apps.AboutsConfig',
     'contacts',
+    'videos.apps.VideosConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
