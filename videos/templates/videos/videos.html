@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+{% block title %} {{ block.super }} || Videos{% endblock title %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h2 class="text-center my-4"><b>Recommended Videos</b></h2>
+        <div class="row">
+            {% for v in video %}
+                <div class="col-xm-12 col-sm-12 col-md-6 mb-4">
+                    <h3 class="text-center mb-2 font-weight-bold">{{ v.title }}</h3>
+                    <div class="card">
+                        <div class="cord-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                {% video v.video as my %}
+                                    <iframe width="853" height="480" src="{{ my.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                {% endvideo %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
